@@ -14,18 +14,12 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            // $table->date('dob');
-            // $table->string('nationality');
-            // $table->string('religion');
-            // $table->string('education');
-            // $table->string('experience');
-            // $table->string('skills');
-            // $table->string('projects');
-            // $table->string('publications');
-            // $table->string('achievements');
-            // $table->string('languages');
-            // $table->string('hobbies');
-            // $table->string('other_info');
+            $table->string('tsc_no');
+            $table->string('emergency_contact');
+            $table->date('date_of_hire');
+            $table->string('department');
+            $table->string('position');
+            $table->string('subjects');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

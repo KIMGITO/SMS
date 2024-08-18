@@ -1,10 +1,5 @@
-@extends('layouts.app')
-@extends('sections.top-bar')
-@extends('sections.side-bar')
-
-@section('content')
-     <div class="container-fluid text-light custom-main ">
-        {!! alertHelper() !!}
+@extends('sections.includes')
+    @section('main')
         <div class="row justify-content-center">
             <div class="card bg-dark text-success col-md-6 col-lg-5">
                 <div class="card-header p-0 shadow-lg lead">

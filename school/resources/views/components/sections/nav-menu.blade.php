@@ -19,7 +19,7 @@
         </a>
     @if ($hasSubMenu)
     <i class='fas fa-chevron-down arrow fs-1' ></i>    
-    @endif
+    
     </div>
     <ul class="sub-menu">
         @foreach ($subMenu as $item)
@@ -32,5 +32,6 @@
         </li>
         @endforeach
     </ul>
+    @endif
 </li>
 

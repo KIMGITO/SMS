@@ -4,7 +4,14 @@
           <span class="logo_name text-dark text-end">St. JohnFisher's</span>
     </div>
     <ul class="nav-links">
-          <x-sections.nav-menu href="#" icon="fa-home"  label="Home" />
+          @component('components.sections.nav-menu',[
+            'href' => 'home',
+            'icon' => 'fa-home',
+            'label' => 'Home',
+            'hasSubMenu' => false
+          ])
+            
+          @endcomponent
 
           @component('components.sections.nav-menu', [
               'href' => 'teacher.index',

@@ -1,26 +1,12 @@
-@extends('layouts.app')
-@extends('sections.top-bar')
-    @section('nav-btn')
-        <x-sections.nav-btn />
-    @endsection
-    @section('form-search-input')
-        <x-forms.search-input />
-    @endsection
-    @section('section-top-info')
-        <x-sections.top-info />
-    @endsection
-@extends('sections.side-bar')
-    
-
-@section('content')
-    <div class="container-fluid text-light custom-main ">
+@extends('sections.includes')
+    @section('main')
         <div class="row justify-content-center">
             <div class="card bg-dark text-success col-md-6 col-lg-5">
                 <div class="card-header p-0 shadow-lg lead">
                     Add new Teacher
                 </div>
                 <div class="card-body">
-                    <form enctype="multipart/form-data" action="{{ route('teacher.store') }}" method="POST"   >
+                    <form enctype="multipart/form-data" action="{{ route('teacher.store1') }}" method="POST"   >
                         @csrf
                         <x-forms.form-section sectionName="Personal Information" class="" />
                         <div class="col-lg-5">
@@ -94,9 +80,8 @@
                                 </div>
                             </div>
                         </div>
-                         <div class="row justify-content-center">
-                            
-                            <div class="col-lg-6">
+                         <div class="row justify-content-between">
+                            <div class="col-lg-5">
                                 <div class="form-group mt-3">
                                    <x-forms.text-input id="address" name="address" label='Home Address' icon='fa-house-chimney' labelClass='text-success fw-bold' value="{{ old('address') }}" />
                                    @error('address')
@@ -104,11 +89,19 @@
                                     @enderror
                                 </div>
                             </div>
+
+                            <div class="col-lg-5">
+                                <div class="form-group mt-3">
+                                   <x-forms.text-input id="emergency_contact" name="emergency_contact" label='Emergency Contact' icon='fa-phone-volume' labelClass='text-success fw-bold' value="{{ old('emergency_contact') }}" />
+                                   @error('emergency_contact')
+                                    <x-forms.input-error message='{{ $message }}' />
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
 
-                        <x-forms.button class="btn-success btn-sm" label='Create'/>
+                        <x-forms.button class="btn-success btn-sm" label='Continue'/>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

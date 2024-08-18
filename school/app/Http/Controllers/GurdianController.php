@@ -14,7 +14,8 @@ class GurdianController extends Controller
      */
     public function index()
     {
-        //
+        $gurdians = Gurdian::with('user')->paginate(6);
+        return view('pages.gurdians/list', compact('gurdians'));
     }
 
     /**
@@ -22,7 +23,7 @@ class GurdianController extends Controller
      */
     public function create()
     {
-        return view('pages.gurdian/create');
+        return view('pages.gurdians/create');
     }
 
     /**

@@ -37,6 +37,20 @@ Route::get('login', [AuthenticationController::class, 'login'])->name('login')->
 Route::post('login', [AuthenticationController::class, 'authenticate'])->name('auth.login')->middleware('guest');
 Route::get('logout', [AuthenticationController::class, 'logout'])->name('auth.logout');
 
-Route::resource('teacher', TeacherController::class)->middleware(['auth']);
+// Route::resource('teacher', TeacherController::class)->middleware(['auth']);
+
+Route::controller(TeacherController::class)
+    ->prefix('teacher')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('/', 'index')->name('teacher.index'); 
+        Route::get('/create', 'step1')->name('teacher.create');
+        Route::post('/create', 'store1')->name('teacher.store1');
+        Route::get('/create2', 'step2')->name('teacher.step2');
+        Route::post('/create2', 'store2')->name('teacher.store2');
+        Route::post('/store', 'store')->name('teacher.store');
+    });
+
+
 Route::resource('student', StudentController::class)->middleware(['auth']);
 Route::resource('gurdian', GurdianController::class)->middleware(['auth']);
